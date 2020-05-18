@@ -1,0 +1,51 @@
+<form #addForm="ngForm" name="addForm" (ngSubmit)="addUser(addForm)">
+    <div class="form-group">
+        <table>
+            <h4>Enter Your Details</h4>
+            <tr>
+                <td>User Type</td>
+                <td><input type="text" class="form-control" name="type" placeholder="Enter user type" ngModel></td>
+            </tr>
+            <tr>
+                <td>User Name</td>
+                <td><input type="text" class="form-control" name="name" placeholder="Enter user name" ngModel></td>
+            </tr>
+            <tr>
+                <td>User Password</td>
+                <td><input type="password" class="form-control" name="password" placeholder="Enter user password" ngModel></td>
+            </tr>
+            <tr>
+                <td>User Phone</td>
+                <td><input type="number" class="form-control" name="phoneNo" placeholder="Enter user phoneNo" ngModel>
+                </td>
+            </tr>
+            <tr>
+                <td>User Email</td>
+                <td><input type="text" class="form-control" name="email" placeholder="Enter user emailId" ngModel></td>
+            </tr>
+            <tr>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </tr>
+        </table>
+    </div>
+
+</form>
+
+<div *ngIf="addStatus">
+<br><h5>Thank You for Registering!!</h5>
+</div>
+<div *ngIf="notAddedStatus">
+    <br><h5>Something went wrong!!</h5>
+</div>
+
+<!-- <label>Email address</label>
+  <input type="email" class="form-control" name="" placeholder="Enter email">
+<div class="form-group">
+  <label for="exampleInputPassword1">Password</label>
+  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+</div>
+<div class="form-group form-check">
+  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button> -->

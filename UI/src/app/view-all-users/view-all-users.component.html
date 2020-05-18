@@ -1,0 +1,27 @@
+<form #viewAllForm="ngForm" name="viewAllForm" >
+    <h3>All Users Details are-</h3><br>
+        <table>
+            <div  *ngFor="let object of foundUsers">
+            <!-- <tr>
+               <td><button type="submit" (click)="viewAllUsers()" class="btn btn-primary">ViewAll</button></td>
+               <td></td>
+            </tr> -->
+            <tr>
+                <td> User Id-{{object.userId}}</td><br>
+            </tr>
+            <tr>
+                <td> User Type-{{object.userType}}</td><br>
+            </tr>
+            <tr>
+                <td> User Name-{{object.userName}}</td><br>
+            </tr>
+            <tr>
+                <td>User PhoneNo-{{object.userPhone}}</td><br>
+            </tr>
+            <tr>
+                <td> User Email-{{object.userEmail}}</td>
+            </tr>
+            -------------------------------------------------------------
+            </div>
+        </table>
+</form>

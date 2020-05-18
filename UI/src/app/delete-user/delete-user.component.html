@@ -1,0 +1,22 @@
+<form #deleteForm="ngForm" name="deleteForm" (ngSubmit)="deleteUser(deleteForm)">
+    <div class="form-group">
+        <table>
+            <h4>To Delete your Account</h4>
+            <tr>
+                <td> Enter User Id</td>
+                <td><input type="number" class="form-control" name="userId" placeholder="Enter user id" ngModel></td>
+            </tr>
+            <tr>
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </tr>
+        </table>
+    </div>
+</form>
+
+<div *ngIf="deletedStatus">
+        Your Account is Deleted!!
+</div>
+
+<div *ngIf="notDeletedStatus">
+        Your Account doesnot exist!!
+</div>

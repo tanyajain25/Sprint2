@@ -1,0 +1,79 @@
+<form #modifyForm="ngForm" name="modifyForm">
+    <div class="form-group">
+        <table>
+            <h4>To Modify your Account</h4>
+            <tr>
+                <td> Enter User Id</td>
+                <td><input type="number" class="form-control" name="userId" placeholder="Enter user id" ngModel></td>
+            </tr>
+            <tr>
+                <button type="submit" (click)="searchUser(modifyForm)" class="btn btn-primary">Search</button>
+            </tr>
+        </table>
+    </div>
+</form>
+<form #modifyForm="ngForm" name="modifyForm">
+    <div *ngIf="foundStatus">
+        Your Account Exist
+        <table>
+            <h4>Enter Your Details</h4>
+            <tr>
+                <td>User Id</td>
+                <td><input type="number" class="form-control" name="id" placeholder="Enter user id" ngModel></td>
+            </tr>
+            <tr>
+                <td>User Type</td>
+                <td><input type="text" class="form-control" name="type" placeholder="Enter user type" ngModel></td>
+            </tr>
+            <tr>
+                <td>User Name</td>
+                <td><input type="text" class="form-control" name="name" placeholder="Enter user name" ngModel></td>
+            </tr>
+            <tr>
+                <td>User Password</td>
+                <td><input type="password" class="form-control" name="password" placeholder="Enter user password"
+                        ngModel></td>
+            </tr>
+            <tr>
+                <td>User Phone</td>
+                <td><input type="number" class="form-control" name="phoneNo" placeholder="Enter user phoneNo" ngModel>
+                </td>
+            </tr>
+            <tr>
+                <td>User Email</td>
+                <td><input type="text" class="form-control" name="email" placeholder="Enter user emailId" ngModel></td>
+            </tr>
+            <tr>
+                <button type="submit" (click)="modifyUser(modifyForm)" class="btn btn-primary">Modify</button>
+            </tr>
+        </table>
+    </div>
+<div *ngIf="notFoundStatus">
+    Your Account does not exist
+</div>
+</form>
+<div *ngIf="addStatus">
+    <br>
+    <h5>Your Updated Details are-</h5>
+    <table>
+        <tr>
+            <td> User Id-{{modifiedUser.userId}}</td><br>
+        </tr>
+        <tr>
+            <td> User Type-{{modifiedUser.userType}}</td><br>
+        </tr>
+        <tr>
+            <td> User Name-{{modifiedUser.userName}}</td><br>
+        </tr>
+        <tr>
+            <td>User PhoneNo-{{modifiedUser.userPhone}}</td><br>
+        </tr>
+        <tr>
+            <td> User Email-{{modifiedUser.userEmail}}</td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="notAddedStatus">
+    <br>
+    <h5>Something went wrong!!</h5>
+</div>

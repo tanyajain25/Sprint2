@@ -1,0 +1,45 @@
+<form #viewForm="ngForm" name="viewForm" (ngSubmit)="viewUser(viewForm)">
+    <div class="form-group">
+        <table>
+            <h4>To see your details</h4>
+            <tr>
+                <td> Enter User Id</td>
+                <td><input type="number" class="form-control" name="userId" placeholder="Enter user id" ngModel></td>
+            </tr>
+            <tr>
+                <button type="submit" class="btn btn-primary">View</button>
+            </tr>
+        </table>
+    </div>
+</form>
+
+<div *ngIf="foundStatus">
+    <h4>Your Details are-</h4><br>
+    <table>
+        <tr>
+            <td> User Id-{{foundUser.userId}}</td><br>
+        </tr>
+        <tr>
+            <td> User Type-{{foundUser.userType}}</td><br>
+        </tr>
+        <tr>
+            <td> User Name-{{foundUser.userName}}</td><br>
+        </tr>
+        <tr>
+            <td>User PhoneNo-{{foundUser.userPhone}}</td><br>
+        </tr>
+        <tr>
+            <td> User Email-{{foundUser.userEmail}}</td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="notFoundStatus">
+    No user found for User Id={{userId}}
+</div>
+
+
+
+
+
+
