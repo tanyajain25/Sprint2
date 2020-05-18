@@ -4,56 +4,73 @@
             <h4>Enter Your Details--</h4>
             <tr>
                 <td>User Type</td>
-                <td><input type="text" class="form-control" name="type" placeholder="Enter user type" ngModel #userid= ngModel ></td>
-                <td><div *ngIf="userid.invalid && (userid.dirty || userid.touched)" class="myerror">
-                    <div *ngIf="userid.invalid == true">
-                        <div *ngIf="userid.errors.required">
-                            User Type  is required.
+                <td><input type="text" class="form-control" name="type" placeholder="Enter user type" ngModel
+                        #userType=ngModel required></td>
+                <td>
+                    <div *ngIf="userType.invalid && (userType.dirty || userType.touched)" class="myerror">
+                        <div *ngIf="userType.invalid == true">
+                            <div *ngIf="userType.errors.required">
+                                User Type is required.
+                            </div>
                         </div>
                     </div>
-                </div>
-            </td>
+                </td>
             </tr>
             <tr>
                 <td>User Name</td>
-                <td><input type="text" class="form-control" name="name" placeholder="Enter user name" ngModel #userName=ngModel></td>
-                <td><div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="myerror">
-                    <div *ngIf="userName.invalid == true">
-                        <div *ngIf="userName.errors.required">
-                             Name  is required.
+                <td><input type="text" class="form-control" name="name" placeholder="Enter user name" ngModel
+                        #userName=ngModel required></td>
+                <td>
+                    <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="myerror">
+                        <div *ngIf="userName.invalid == true">
+                            <div *ngIf="userName.errors.required">
+                                Name is required.
+                            </div>
                         </div>
                     </div>
-                </div>
-            </td>
+                </td>
             </tr>
             <tr>
                 <td>User Password</td>
-                <td><input type="password" class="form-control" name="password" placeholder="Enter user password" ngModel #userPassword=ngModel></td>
-                <td><div *ngIf="userPassword.invalid && (userPassword.dirty || userPassword.touched)" class="myerror">
-                    <div *ngIf="userPassword.invalid == true">
-                        <div *ngIf="userPassword.errors.required">
-                            Password  is required.
+                <td><input type="password" class="form-control" name="password" placeholder="Enter user password"
+                        ngModel #userPassword=ngModel required></td>
+                <td>
+                    <div *ngIf="userPassword.invalid && (userPassword.dirty || userPassword.touched)" class="myerror">
+                        <div *ngIf="userPassword.invalid == true">
+                            <div *ngIf="userPassword.errors.required">
+                                Password is required.
+                            </div>
                         </div>
                     </div>
-                </div>
-            </td>
+                </td>
             </tr>
             <tr>
                 <td>User Phone</td>
-                <td><input type="number" class="form-control" name="phoneNo" placeholder="Enter user phoneNo" ngModel #userPhone=ngModel>
-                    <td><div *ngIf="userPhone.invalid && (userPhone.dirty || userPhone.touched)" class="myerror">
+                <td><input type="number" class="form-control" name="phoneNo" placeholder="Enter user phoneNo" ngModel
+                        #userPhone=ngModel required></td>
+                <td>
+                    <div *ngIf="userPhone.invalid && (userPhone.dirty || userPhone.touched)" class="myerror">
                         <div *ngIf="userPhone.invalid == true">
                             <div *ngIf="userPhone.errors.required">
                                 PhoneNo is required.
                             </div>
                         </div>
                     </div>
-                    </td>
                 </td>
+
             </tr>
             <tr>
                 <td>User Email</td>
-                <td><input type="text" class="form-control" name="email" placeholder="Enter user emailId" ngModel></td>
+                <td><input type="text" class="form-control" name="email" placeholder="Enter user emailId" ngModel #userEmail=ngModel required></td>
+                <td>
+                    <div *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)" class="myerror">
+                        <div *ngIf="userEmail.invalid == true">
+                            <div *ngIf="userEmail.errors.required">
+                                Email is required.
+                            </div>
+                        </div>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <button type="submit" class="btn btn-primary">Register</button>
@@ -64,10 +81,12 @@
 </form>
 
 <div *ngIf="addStatus">
-<br><h5>Thank You for Registering!!</h5>
+    <br>
+    <h5>Thank You for Registering!!</h5>
 </div>
 <div *ngIf="notAddedStatus">
-    <br><h5>Something went wrong!!</h5>
+    <br>
+    <h5>Something went wrong!!</h5>
 </div>
 
 <!-- <label>Email address</label>

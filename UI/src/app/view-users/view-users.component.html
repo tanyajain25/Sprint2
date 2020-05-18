@@ -4,7 +4,16 @@
             <h4>To see your details</h4>
             <tr>
                 <td> Enter User Id</td>
-                <td><input type="number" class="form-control" name="userId" placeholder="Enter user id" ngModel></td>
+                <td><input type="number" class="form-control" name="userId" placeholder="Enter user id" ngModel #userid=ngModel required></td>
+                <td>
+                    <div *ngIf="userid.invalid && (userid.dirty || userid.touched)" class="myerror">
+                        <div *ngIf="userid.invalid == true">
+                            <div *ngIf="userid.errors.required">
+                                User Id  is required.
+                            </div>
+                        </div>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <button type="submit" class="btn btn-primary">View</button>
