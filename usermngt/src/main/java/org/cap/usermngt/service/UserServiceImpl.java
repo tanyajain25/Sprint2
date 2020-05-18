@@ -63,10 +63,4 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	/* update user */
-	@Override
-	public User updateUser(User user) {
-		user = userDao.save(user);
-		return user;
-	}
 }

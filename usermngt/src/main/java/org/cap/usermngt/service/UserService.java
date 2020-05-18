@@ -14,5 +14,4 @@ public interface UserService {
 
 	Boolean deleteUser(BigInteger id);
 
-	User updateUser(User user);
 }

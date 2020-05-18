@@ -68,13 +68,6 @@ public class UserRestController {
 		return reponse;
 	}
 
-	/* update user */
-	@PutMapping("/update")
-	public ResponseEntity<User> updateUser(@RequestBody User user) {
-		User users = service.updateUser(user);
-		ResponseEntity<User> response = new ResponseEntity<>(users, HttpStatus.OK);
-		return response;
-	}
 
 	@ExceptionHandler(UserNotFoundException.class)
 	public ResponseEntity<String> handleUserNotFound(UserNotFoundException exception) {
