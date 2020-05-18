@@ -34,7 +34,7 @@ public class PassengerRestController {
 		return reponse;
 	}
 
-	/* convert passengerdtodetails to passengerdetails */
+	/** convert passengerdtodetails to passengerdetails **/
 	public Passenger convertFromDtoToPassenger(RequestPassengerDto requestData) {
 		Passenger passenger = new Passenger();
 		passenger.setPassengerUIN(requestData.getPassengerUIN());
