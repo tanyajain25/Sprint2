@@ -33,7 +33,7 @@ public class UserRestController {
 		return reponse;
 	}
 
-	/* convert dtodetails to user */
+	/** convert dtodetails to user **/
 	public User convertFromDtoToUser(RequestUserDto requestData) {
 		User user = new User();
 		user.setUserType(requestData.getUserType());
