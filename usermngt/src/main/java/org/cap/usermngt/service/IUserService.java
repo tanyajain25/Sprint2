@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 import org.cap.usermngt.entities.User;
 
-public interface UserService {
+public interface IUserService {
 
 	User addUser(User user);
 
@@ -13,5 +13,7 @@ public interface UserService {
 	List<User> viewAllUsers();
 
 	Boolean deleteUser(BigInteger id);
+	
+	User modifyUser(User user);
 
 }

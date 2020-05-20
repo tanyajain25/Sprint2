@@ -2,16 +2,11 @@ package org.cap.usermngt.dto;
 
 import java.math.BigInteger;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
 public class RequestUserDto {
 
 	private String userType;
 	private String userName;
 	private String userPassword;
-	@Min(value = 999999999L)
-	@Max(value = 9999999999L)
 	private BigInteger userPhone;
 	private String userEmail;
 

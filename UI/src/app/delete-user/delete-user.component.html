@@ -1,7 +1,7 @@
 <form #deleteForm="ngForm" name="deleteForm" (ngSubmit)="deleteUser(deleteForm)">
-    <div class="form-group">
+    <div class="form-group" align="center">
         <table>
-            <h4>To Delete your Account</h4>
+            <br><br><h4>To Delete your Account</h4><br>
             <tr>
                 <td> Enter User Id</td>
                 <td><input type="number" class="form-control" name="userId" placeholder="Enter user id" ngModel #userid=ngModel required></td>
@@ -9,23 +9,23 @@
                     <div *ngIf="userid.invalid && (userid.dirty || userid.touched)" class="myerror">
                         <div *ngIf="userid.invalid == true">
                             <div *ngIf="userid.errors.required">
-                                User Id is required.
+                                User Id is required.| Must be numeric.
                             </div>
                         </div>
                     </div>
                 </td>
             </tr>
             <tr>
-                <button type="submit" class="btn btn-primary">Delete</button>
+                <button type="submit" [disabled]="deleteForm.form.invalid" class="btn btn-primary">Delete</button>
             </tr>
         </table>
     </div>
 </form>
 
-<div *ngIf="deletedStatus">
-        Your Account is Deleted!!
+<div *ngIf="deletedStatus" align="center">
+    <h4>    Your Account is Deleted!!</h4>
 </div>
 
-<div *ngIf="notDeletedStatus">
-        Your Account doesnot exist!!
+<div *ngIf="notDeletedStatus" align="center">
+    <h4>    Your Account doesnot exist!! </h4>
 </div>

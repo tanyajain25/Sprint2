@@ -1,7 +1,23 @@
-<form #addForm="ngForm" name="addForm" (ngSubmit)="addUser(addForm)">
+<form #modifyForm="ngForm" name="modifyForm" (ngSubmit)="modifyUser(modifyForm)">
     <div class="form-group" align="center">
-        <table> <br><br>
-            <h4>Enter Your Details</h4><br>
+        <table>
+            <br><br>
+            <h4>To Modify your Account</h4><br>
+            <h4>Enter Some Details</h4><br>
+            <tr>
+                <td> User Id</td>
+                <td><input type="number" class="form-control" name="userId" placeholder="Enter user id" ngModel
+                        #userId=ngModel required></td>
+                <td>
+                    <div *ngIf="userId.invalid && (userId.dirty || userId.touched)" class="myerror">
+                        <div *ngIf="userId.invalid == true">
+                            <div *ngIf="userId.errors.required">
+                                User Id is required.| Must be numeric.
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
             <tr>
                 <td>User Type</td>
                 <td><input type="text" class="form-control" name="type" placeholder="Enter user type" ngModel
@@ -10,7 +26,7 @@
                     <div *ngIf="userType.invalid && (userType.dirty || userType.touched)" class="myerror">
                         <div *ngIf="userType.invalid == true">
                             <div *ngIf="userType.errors.required">
-                                User Type is required.| Must be textual
+                                User Type is required.| Must be textual.
                             </div>
                         </div>
                     </div>
@@ -33,7 +49,7 @@
             <tr>
                 <td>User Password</td>
                 <td><input type="password" class="form-control" name="password" placeholder="Enter user password"
-                        ngModel #userPassword=ngModel minlength ="6" required></td>
+                        ngModel #userPassword=ngModel minlength="6" required></td>
                 <td>
                     <div *ngIf="userPassword.invalid && (userPassword.dirty || userPassword.touched)" class="myerror">
                         <div *ngIf="userPassword.invalid == true">
@@ -43,6 +59,7 @@
                             <div *ngIf="userPassword.errors.minlength">
                                 Password must contain atleast 6 characters.
                             </div>
+
                         </div>
                     </div>
                 </td>
@@ -64,8 +81,8 @@
             </tr>
             <tr>
                 <td>User Email</td>
-                <td><input type="text" class="form-control" name="email" placeholder="Enter user emailId" ngModel #userEmail=ngModel 
-                    required></td>
+                <td><input type="text" class="form-control" name="email" placeholder="Enter user emailId" ngModel
+                        #userEmail=ngModel  required></td>
                 <td>
                     <div *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)" class="myerror">
                         <div *ngIf="userEmail.invalid == true">
@@ -77,18 +94,16 @@
                 </td>
             </tr>
             <tr>
-                <button type="submit" [disabled]="addForm.form.invalid" class="btn btn-primary">Register</button>
+                <button type="submit" [disabled]="modifyForm.form.invalid" class="btn btn-primary">Modify</button>
             </tr>
         </table>
     </div>
-
 </form>
-
-<div *ngIf="addStatus" align="center">
+<div *ngIf="modifyStatus" align="center">
     <br>
-    <h4>Thank You for Registering!!</h4>
+    <h4>Infomation is Modified</h4>
 </div>
-<div *ngIf="notAddedStatus" align="center">
+<div *ngIf="notModifiedStatus" align="center">
     <br>
-    <h4>Something went wrong!!</h4>
+    <h4>No records found !!</h4>
 </div>

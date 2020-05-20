@@ -35,7 +35,7 @@ export class AddUserComponent implements OnInit {
       },
       err=>{
         this.notAddedStatus=true;
-       console.log("Error while adding users= "+err);
+       console.log("Error while adding users= "+ err);
        }
      ); 
 

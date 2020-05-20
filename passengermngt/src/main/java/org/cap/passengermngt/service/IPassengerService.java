@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 import org.cap.passengermngt.entities.Passenger;
 
-public interface PassengerService {
+public interface IPassengerService {
 
 	Passenger addPassenger(Passenger passenger);
 

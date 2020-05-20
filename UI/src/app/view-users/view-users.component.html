@@ -1,7 +1,7 @@
 <form #viewForm="ngForm" name="viewForm" (ngSubmit)="viewUser(viewForm)">
-    <div class="form-group">
+    <div class="form-group" align="center">
         <table>
-            <h4>To see your details</h4>
+           <br><br> <h4>To see your details</h4><br>
             <tr>
                 <td> Enter User Id</td>
                 <td><input type="number" class="form-control" name="userId" placeholder="Enter user id" ngModel #userid=ngModel required></td>
@@ -9,42 +9,42 @@
                     <div *ngIf="userid.invalid && (userid.dirty || userid.touched)" class="myerror">
                         <div *ngIf="userid.invalid == true">
                             <div *ngIf="userid.errors.required">
-                                User Id  is required.
+                                User Id  is required.| Must be numeric.
                             </div>
                         </div>
                     </div>
                 </td>
             </tr>
             <tr>
-                <button type="submit" class="btn btn-primary">View</button>
+                <button type="submit" [disabled]="viewForm.form.invalid" class="btn btn-primary">View</button>
             </tr>
         </table>
     </div>
 </form>
 
-<div *ngIf="foundStatus">
-    <h4>Your Details are-</h4><br>
-    <table>
+<div *ngIf="foundStatus" align="center">
+    <h4>Details are-</h4><br>
+    <table border="3">
         <tr>
-            <td> User Id-{{foundUser.userId}}</td><br>
+            <td> User Id-{{foundUser.userId}}</td><br><br>
         </tr>
         <tr>
-            <td> User Type-{{foundUser.userType}}</td><br>
+            <td> User Type-{{foundUser.userType}}</td><br><br>
         </tr>
         <tr>
-            <td> User Name-{{foundUser.userName}}</td><br>
+            <td> User Name-{{foundUser.userName}}</td><br><br>
         </tr>
         <tr>
-            <td>User PhoneNo-{{foundUser.userPhone}}</td><br>
+            <td>User PhoneNo-{{foundUser.userPhone}}</td><br><br>
         </tr>
         <tr>
-            <td> User Email-{{foundUser.userEmail}}</td>
+            <td> User Email-{{foundUser.userEmail}}</td><br><br>
         </tr>
     </table>
 </div>
 
-<div *ngIf="notFoundStatus">
-    No user found for User Id={{userId}}
+<div *ngIf="notFoundStatus" align="center">
+   <h4>No user found for User Id={{userId}}</h4>
 </div>
 
 

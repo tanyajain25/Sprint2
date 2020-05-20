@@ -1,5 +1,13 @@
+<head>
+    <style>
+        hr.new1 {
+  border-top: 2px solid red;
+}
+   </style>
+</head>
 <form #viewAllForm="ngForm" name="viewAllForm" >
-    <h3>All Users Details are-</h3><br>
+    <div align="center">
+    <br><h3>All Users Details are-</h3><br>
         <table>
             <div  *ngFor="let object of foundUsers">
             <!-- <tr>
@@ -21,7 +29,8 @@
             <tr>
                 <td> User Email-{{object.userEmail}}</td>
             </tr>
-            -------------------------------------------------------------
+            <hr class="new1">
             </div>
         </table>
+        </div>
 </form>

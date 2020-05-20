@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
-import org.cap.usermngt.dao.UserDao;
+import org.cap.usermngt.dao.IUserDao;
 import org.cap.usermngt.entities.User;
 import org.cap.usermngt.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +13,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 
-	private UserDao userDao;
+	private IUserDao userDao;
 
-	public UserDao getUserDao() {
+	public IUserDao getUserDao() {
 		return userDao;
 	}
 
 	@Autowired
-	public void setUserDao(UserDao userDao) {
+	public void setUserDao(IUserDao userDao) {
 		this.userDao = userDao;
 	}
 
@@ -62,5 +62,13 @@ public class UserServiceImpl implements UserService {
 		throw new UserNotFoundException("User not found for id=" + userId);
 
 	}
+	/* modify user */
+	@Override
+	public User modifyUser(User user) {
+		user=userDao.save(user);
+		return user;
+	}
+	
+	
 
 }

@@ -3,7 +3,7 @@ package org.cap.usermngt.controller;
 import org.cap.usermngt.dto.RequestUserDto;
 import org.cap.usermngt.entities.User;
 import org.cap.usermngt.exceptions.UserNotFoundException;
-import org.cap.usermngt.service.UserService;
+import org.cap.usermngt.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +13,18 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.math.BigInteger;
 import java.util.List;
-
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
-@Validated
 public class UserRestController {
 
 	@Autowired
-	private UserService service;
+	private IUserService service;
 
 	/* add new user */
 	@PostMapping("/add")
-	public ResponseEntity<User> addUsers(@RequestBody @Valid RequestUserDto requestData) {
+	public ResponseEntity<User> addUsers(@RequestBody RequestUserDto requestData) {
 		User user = convertFromDtoToUser(requestData);
 		user = service.addUser(user);
 		ResponseEntity<User> reponse = new ResponseEntity<User>(user, HttpStatus.OK);
@@ -65,6 +63,21 @@ public class UserRestController {
 	public ResponseEntity<Boolean> deleteUser(@PathVariable("userId") BigInteger userId) {
 		boolean result=service.deleteUser(userId);
 		ResponseEntity<Boolean> reponse = new ResponseEntity<Boolean>(result, HttpStatus.OK);
+		return reponse;
+	}
+	
+	/* modify user by userId */
+	@PutMapping("/modifybyuserid/{userId}")
+	public ResponseEntity<User> modifyUser(@PathVariable("userId") BigInteger userId,@RequestBody @Valid RequestUserDto requestData) {
+		User user= service.viewUser(userId);
+		user.setUserId(userId);
+		user.setUserType(requestData.getUserType());
+		user.setUserName(requestData.getUserName());
+		user.setUserPassword(requestData.getUserPassword());
+		user.setUserEmail(requestData.getUserEmail());
+		user.setUserPhone(requestData.getUserPhone());
+		user=service.modifyUser(user);
+		ResponseEntity<User> reponse = new ResponseEntity<User>(user, HttpStatus.OK);
 		return reponse;
 	}
 

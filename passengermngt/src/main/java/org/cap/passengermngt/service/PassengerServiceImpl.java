@@ -3,7 +3,7 @@ package org.cap.passengermngt.service;
 import java.math.BigInteger;
 import java.util.Optional;
 
-import org.cap.passengermngt.dao.PassengerDao;
+import org.cap.passengermngt.dao.IPassengerDao;
 import org.cap.passengermngt.entities.Passenger;
 import org.cap.passengermngt.exceptions.PassengerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +12,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class PassengerServiceImpl implements PassengerService {
+public class PassengerServiceImpl implements IPassengerService {
 
-	private PassengerDao passengerDao;
+	private IPassengerDao passengerDao;
 
-	public PassengerDao getPassengerDao() {
+	public IPassengerDao getPassengerDao() {
 		return passengerDao;
 	}
 
 	@Autowired
-	public void setPassengerDao(PassengerDao passengerDao) {
+	public void setPassengerDao(IPassengerDao passengerDao) {
 		this.passengerDao = passengerDao;
 	}
 

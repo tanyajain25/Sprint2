@@ -13,7 +13,7 @@ export class UserService {
     this.client = client;
   }
 
-  baseUserUrl = "http://localhost:8087/users";
+  baseUserUrl = "http://localhost:8088/users";
 
   addUser(user: User): Observable<User> {
     let url = this.baseUserUrl + '/add/';
@@ -39,8 +39,8 @@ export class UserService {
     return observable;
   }
 
-  modifyUser(user:User): Observable<User> {
-    let url = this.baseUserUrl + '/update/';
+  modifyUser(user:User, userId: number): Observable<User> {
+    let url = this.baseUserUrl + '/modifybyuserid/'+userId;
     let observable: Observable<User> = this.client.put<User>(url,user);
     return observable;
   }
